@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giraffe Fun Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f0e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+        .fact-container {
+            background-color: #fff8e7;
+            border: 2px dashed #e67e22;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        p.fact {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #d35400;
+        }
+        .giraffe-image {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #888;
+            padding: 10px;
+            border-top: 1px solid #f0e0c7;
+        }
+        footer a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #d35400;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="giraffe.png" alt="Giraffe Icon" class="giraffe-image">
+        <h1>🦒 Giraffe Fun Facts Generator 🦒</h1>
+        <div class="fact-container">
+            <p id="fact" class="fact">Click the button below to discover a fascinating fact about giraffes!</p>
+        </div>
+        <button id="new-fact-btn">New Fact</button>
+        <footer>Created with ❤️ by <a href="https://www.linkedin.com/in/kisal-induwara/" target="_blank">Kisal Induwara</a></footer>
+    </div>
+
+    <script>
+        const facts = [
+            "Giraffes are the tallest living terrestrial animals, with adult males reaching heights of up to 18 feet (5.5 meters).",
+            "A giraffe's neck contains only seven vertebrae—the same number as humans—but each vertebra can be over 10 inches (25 cm) long.",
+            "Giraffes have a unique spotted pattern, and no two giraffes have exactly the same pattern, similar to human fingerprints.",
+            "Giraffes' tongues are bluish-purple and can grow up to 21 inches (53 cm) long, helping them grasp leaves from thorny acacia trees.",
+            "A giraffe's heart can weigh up to 24 pounds (11 kg) and is incredibly powerful to pump blood all the way up their long necks.",
+            "Baby giraffes, called calves, are born after a 15-month gestation period and fall about 6 feet (1.8 meters) to the ground during birth.",
+            "Giraffes only need to drink water once every few days because they get most of their hydration from the plants they eat.",
+            "Giraffes sleep for only about 30 minutes to two hours per day, usually in short 5-minute naps.",
+            "A group of giraffes is called a 'tower' when they're standing and a 'journey' when they're moving.",
+            "Giraffes communicate using infrasounds, which are too low for humans to hear but can travel long distances."
+        ];
+
+        const factElement = document.getElementById('fact');
+        const newFactBtn = document.getElementById('new-fact-btn');
+
+        // Function to display a random fact
+        function displayRandomFact() {
+            // Get a random index
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            
+            // Update the fact text
+            factElement.textContent = facts[randomIndex];
+            
+            // Add a small animation
+            factElement.style.opacity = 0;
+            setTimeout(() => {
+                factElement.style.opacity = 1;
+            }, 100);
+        }
+
+        // Event listener for the button
+        newFactBtn.addEventListener('click', displayRandomFact);
+
+        // Display a random fact when the page loads
+        window.onload = displayRandomFact;
+    </script>
+</body>
+</html>
